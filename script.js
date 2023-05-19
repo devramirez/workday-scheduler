@@ -3,17 +3,19 @@
 // in the html.
 
 $(function () { // render html & css to load first
-    var todayDate = day.js().format("dddd, MMMM D, YYYY, H:mma") // using day.js to retrieve time data
+    var todayDate = dayjs().format("dddd, MMMM D, YYYY, H:mma") // using day.js to retrieve time data
     $("#currentDay").text(todayDate);
     // assign saveBtn click event listener for user input and log time stamp
     $(".saveBtn").on("click", function(){
-        var text = $(this).siblings(".description").val(); // taken the change from the sibling html description attribute 
-        var time = $(this).parent().attr("#id"); // taken the change from the parent html id attribute
+        console.log("button clicked")
+
+        var task = $(this).siblings(".description").val();  // DOM traversal taken from the sibling html desc attr
+        var time = $(this).parent().attr("id"); // DOM traversal from taken from the parent html id attr
        
         // set items in local storage
-        localStorage.setItem(time, text);
+        localStorage.setItem(time, task);
     })
-    
+
     // load any saved data from localStorage
     $("#hour9 .description").val(localStorage.getItem("hour9"));
     $("#hour9 .description").val(localStorage.getItem("hour10"));
@@ -24,8 +26,38 @@ $(function () { // render html & css to load first
     $("#hour9 .description").val(localStorage.getItem("hour15"));
     $("#hour9 .description").val(localStorage.getItem("hour16"));
     $("#hour9 .description").val(localStorage.getItem("hour17"));
+
+
+
    
-    
+    function timeTracker() {
+//         // get current number of hours
+        var currentHour = dayjs().hour();
+
+//         // time-block id
+        $(".time-block").each(function() {
+
+            var blockHour = parseInt($(this).attr("id").split("hour")[1]);
+            console.log(blockHour, currentHour);
+
+//             // add code to apply the past, present or future class
+            if(blockHour < currentHour) {
+                $(this).addClass("past");
+                $(this).removeClass("present");
+                $(this).removeClass("future");
+            } else if (blockHour === currentHour) {
+                $(this).removeClass("past")
+                $(this).addClass("present")
+                $(this).removeClass("future")
+            } else {
+                $(this).removeClass("past")
+                $(this).removeClass("present")
+                $(this).addClass("future")
+            }
+    })
+
+    }
+    timeTracker();
 });
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
