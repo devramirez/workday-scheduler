@@ -2,11 +2,31 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-$document().ready(function () { // render html & css to load first
+$(function () { // render html & css to load first
     var todayDate = day.js().format("dddd, MMMM D, YYYY, H:mma") // using day.js to retrieve time data
     $("#currentDay").text(todayDate);
-
-    function timeTracker()
+    // assign saveBtn click event listener for user input and log time stamp
+    $(".saveBtn").on("click", function(){
+        var text = $(this).siblings(".description").val(); // taken the change from the sibling html description attribute 
+        var time = $(this).parent().attr("#id"); // taken the change from the parent html id attribute
+       
+        // set items in local storage
+        localStorage.setItem(time, text);
+    })
+    
+    // load any saved data from localStorage
+    $("#hour9 .description").val(localStorage.getItem("hour9"));
+    $("#hour9 .description").val(localStorage.getItem("hour10"));
+    $("#hour9 .description").val(localStorage.getItem("hour11"));
+    $("#hour9 .description").val(localStorage.getItem("hour12"));
+    $("#hour9 .description").val(localStorage.getItem("hour13"));
+    $("#hour9 .description").val(localStorage.getItem("hour14"));
+    $("#hour9 .description").val(localStorage.getItem("hour15"));
+    $("#hour9 .description").val(localStorage.getItem("hour16"));
+    $("#hour9 .description").val(localStorage.getItem("hour17"));
+   
+    
+});
     // TODO: Add a listener for click events on the save button. This code should
     // use the id in the containing time-block as a key to save the user input in
     // local storage. HINT: What does `this` reference in the click listener
@@ -25,5 +45,5 @@ $document().ready(function () { // render html & css to load first
     // attribute of each time-block be used to do this?
     //
     // TODO: Add code to display the current date in the header of the page.
-  });
+  
   
