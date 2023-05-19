@@ -9,6 +9,10 @@ The motivation behind this project was to create a planner that saves informatio
 To install this application you can  `git clone git@github.com:devramirez/workday-scheduler.git`
 Or alternatively, browse the web to this link: https://github.com/devramirez/workday-scheduler.git
 
+## Usage
+
+<img width="1456" alt="workday-scheduler" src="https://github.com/devramirez/workday-scheduler/assets/45980046/d3d98d1d-e655-4290-9b73-e53fb10c099c">
+
 ## Credits
 I used the following resources to complete this project:
 
