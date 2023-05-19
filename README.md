@@ -11,12 +11,15 @@ Or alternatively, browse the web to this link: https://github.com/devramirez/wor
 
 ## Credits
 I used the following resources to complete this project:
-```
+
 [W3Schools](https://www.w3schools.com/jsref/prop_win_localstorage.asp)
+
 [Stack Overflow](https://stackoverflow.com/questions/40791207/setting-and-getting-localstorage-with-jquery)
+
 [DayJS](https://day.js.org/docs/en/display/format)
+
 [MDN Docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseInt)
-```
+
 Bootcamp TA - Will.
 
 ## GitHub Pages Deployment
